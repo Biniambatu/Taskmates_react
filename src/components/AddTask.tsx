@@ -1,17 +1,26 @@
-import { Button, Input, InputGroup, InputRightElement } from "@chakra-ui/react";
+import { Button, FormControl, Input, InputGroup, InputRightElement } from "@chakra-ui/react";
 import React from "react";
 
-const AddTask = () => {
+const AddTask = ({taskList,setTaskList}:any) => {
+  const handleSubmit = (e:any) => {
+     e.preventDefault();
+     const date = new Date()
+     const newTask = {
+      id: date.getTime(),
+      name: e.target.task.value,
+      date:`${date.toLocaleTimeString()}${date.toLocaleDateString()}`
+     }
+     setTaskList([...taskList,newTask ])
+  }
   return (
     <>
-      <InputGroup size="md">
-        <Input pr="4.5rem" placeholder="add task" />
-        <InputRightElement width="4.5rem">
-          <Button h="1.75rem" size="sm">
-            ADD
-          </Button>
-        </InputRightElement>
-      </InputGroup>
+       <section>
+        <form onSubmit={handleSubmit}>
+          <label htmlFor="task"></label>
+          <input name="task" type="text" autoComplete="off"  />
+          <button className="btn btn-success">Add</button>
+        </form>
+       </section>
     </>
   );
 };

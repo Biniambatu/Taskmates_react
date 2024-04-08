@@ -1,25 +1,17 @@
 
-import { GridItem, Grid } from "@chakra-ui/react"
 import AddTask from "./components/AddTask"
 import Header from "./components/Header"
 import ShowTask from "./components/ShowTask"
-
+import { useState } from "react"
+import 'bootstrap/dist/css/bootstrap.css';
 function App() {
-  
+   const[taskList, setTaskList] = useState([])
+   const[task, setTask] = useState([])
   return (
     <>
-       <Grid templateAreas={`"nav" "main" `}>
-          <GridItem  area={'nav'}>
-            <Header></Header>
-          </GridItem>
-          <GridItem  area={'main'}>
-             <AddTask></AddTask>
-             <ShowTask></ShowTask>
-          </GridItem>
-       </Grid>
-       
-       
-       
+        <Header></Header>
+        <AddTask taskList={taskList} setTaskList={setTaskList}/>
+        <ShowTask taskList={taskList} setTaskList={setTaskList}/>
     </>
       
   )
