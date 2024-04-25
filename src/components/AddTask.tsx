@@ -1,7 +1,7 @@
 import { Button, FormControl, Input, InputGroup, InputRightElement } from "@chakra-ui/react";
 import React from "react";
 
-const AddTask = ({taskList,setTaskList}:any) => {
+const AddTask = ({taskList,setTaskList,task, setTask}:any) => {
   const handleSubmit = (e:any) => {
      e.preventDefault();
      const date = new Date()

@@ -1,12 +1,13 @@
 import { DeleteIcon, EditIcon } from "@chakra-ui/icons";
 import { Button, Card, CardBody, HStack, Text, VStack } from "@chakra-ui/react";
 
-const ShowTask = ({ taskList, setTaskList }: any) => {
+const ShowTask = ({ taskList, setTaskList, task, setTask}: any) => {
   const handleClear = () => {
     setTaskList([])
   }
   const handleEdit = (id:any) => {
-     
+     const selectedTask = taskList.find(todo => todo.id === id);
+     setTask(selectedTask)
   }
   const handleDelete = (id:any) => {
     const updatedTaskList = taskList.filter(todos => todos.id !== id );

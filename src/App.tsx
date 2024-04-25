@@ -6,12 +6,12 @@ import { useState } from "react"
 import 'bootstrap/dist/css/bootstrap.css';
 function App() {
    const[taskList, setTaskList] = useState([])
-   const[task, setTask] = useState([])
+   const[task, setTask] = useState({})
   return (
     <>
         <Header></Header>
-        <AddTask taskList={taskList} setTaskList={setTaskList}/>
-        <ShowTask taskList={taskList} setTaskList={setTaskList}/>
+        <AddTask taskList={taskList} setTaskList={setTaskList} task={task} setTask={setTask}/>
+        <ShowTask taskList={taskList} setTaskList={setTaskList} task={task} setTask={setTask}/>
     </>
       
   )
